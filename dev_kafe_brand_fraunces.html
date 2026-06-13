@@ -1,0 +1,454 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,900&family=DM+Sans:wght@400;500&display=swap');
+
+  :root {
+    --dk-dark: #1A2B1E;
+    --dk-mid: #2D4A35;
+    --dk-accent: #3D6B47;
+    --dk-light: #C8DDB0;
+    --dk-cream: #EEE9DC;
+    --dk-white: #FAFAF7;
+  }
+
+  .wrap { background: var(--dk-cream); font-family: 'DM Sans', sans-serif; overflow: hidden; }
+
+  .hero {
+    background: var(--dk-dark);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 260px;
+  }
+
+  .hero-left {
+    background: var(--dk-mid);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 48px 40px;
+  }
+
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px 48px;
+    gap: 10px;
+  }
+
+  .logo-big {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 82px;
+    line-height: 0.85;
+    color: var(--dk-light);
+    letter-spacing: -2px;
+  }
+
+  .logo-big .bean {
+    display: inline-block;
+    width: 44px;
+    height: 44px;
+    vertical-align: middle;
+    margin: 0 2px;
+    position: relative;
+    top: -6px;
+  }
+
+  .tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--dk-light);
+    opacity: 0.5;
+    margin-top: 12px;
+  }
+
+  .url {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--dk-light);
+    opacity: 0.35;
+    margin-top: 6px;
+  }
+
+  .variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--dk-cream);
+  }
+
+  .vbox {
+    padding: 36px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(26,43,30,0.1);
+  }
+  .vbox:last-child { border-right: none; }
+  .vbox.inv { background: var(--dk-dark); }
+  .vbox.wht { background: var(--dk-white); }
+
+  .vlogo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 52px;
+    line-height: 0.88;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+
+  .vlogo.on-cream { color: var(--dk-dark); }
+  .vlogo.on-dark  { color: var(--dk-light); }
+  .vlogo.on-white { color: var(--dk-mid); }
+
+  .vlabel {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    opacity: 0.4;
+    color: var(--dk-dark);
+  }
+  .vbox.inv .vlabel { color: var(--dk-light); }
+
+  .palette {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .sw {
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 10px 14px;
+  }
+
+  .sw-name { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; opacity: 0.85; }
+  .sw-hex  { font-size: 9px; font-family: monospace; opacity: 0.55; margin-top: 2px; }
+
+  .mockups {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background: var(--dk-cream);
+    border-top: 1px solid rgba(26,43,30,0.1);
+  }
+
+  .mock {
+    padding: 32px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid rgba(26,43,30,0.1);
+    gap: 14px;
+  }
+  .mock:last-child { border-right: none; }
+
+  .cup {
+    width: 76px;
+    height: 82px;
+    background: var(--dk-mid);
+    border-radius: 4px 4px 12px 12px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cup::before {
+    content: '';
+    position: absolute;
+    top: -11px; left: 0; right: 0;
+    height: 14px;
+    background: var(--dk-dark);
+    border-radius: 3px 3px 0 0;
+  }
+  .cup-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 19px;
+    line-height: 0.9;
+    color: var(--dk-light);
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .bag {
+    width: 68px;
+    height: 90px;
+    background: var(--dk-dark);
+    border-radius: 3px 3px 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .bag::before {
+    content: '';
+    position: absolute;
+    top: -7px; left: 18px; right: 18px;
+    height: 10px;
+    background: var(--dk-dark);
+    border-radius: 3px 3px 0 0;
+  }
+  .bag-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 0.9;
+    color: var(--dk-light);
+    text-align: center;
+  }
+
+  .tote {
+    width: 80px;
+    height: 90px;
+    background: var(--dk-cream);
+    border: 1.5px solid rgba(26,43,30,0.25);
+    border-radius: 2px 2px 6px 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .tote::before {
+    content: '';
+    position: absolute;
+    top: -14px;
+    left: 22px;
+    width: 8px;
+    height: 16px;
+    border: 1.5px solid rgba(26,43,30,0.3);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .tote::after {
+    content: '';
+    position: absolute;
+    top: -14px;
+    right: 22px;
+    width: 8px;
+    height: 16px;
+    border: 1.5px solid rgba(26,43,30,0.3);
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+  }
+  .tote-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 0.9;
+    color: var(--dk-dark);
+    text-align: center;
+  }
+
+  .mock-label {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.35;
+    color: var(--dk-dark);
+    text-align: center;
+  }
+
+  .type-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--dk-white);
+    border-top: 1px solid rgba(26,43,30,0.1);
+    padding: 36px 40px;
+    gap: 40px;
+  }
+
+  .type-label { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--dk-dark); opacity: 0.4; margin-bottom: 10px; }
+
+  .type-display {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 44px;
+    color: var(--dk-dark);
+    line-height: 1;
+  }
+
+  .type-sample {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--dk-dark);
+    opacity: 0.55;
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+
+  .type-ui {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--dk-mid);
+  }
+
+  .footer-bar {
+    background: var(--dk-dark);
+    padding: 24px 40px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 28px;
+    color: var(--dk-light);
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .footer-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(200,221,176,0.2);
+    margin: 0 24px;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dk-light);
+    opacity: 0.35;
+  }
+
+  .footer-url {
+    margin-left: auto;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: var(--dk-light);
+    opacity: 0.3;
+    font-family: monospace;
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="hero-left">
+      <div class="logo-big">DEV
+        <svg class="bean" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="22" cy="22" rx="18" ry="12" fill="#C8DDB0" transform="rotate(-20 22 22)"/>
+          <path d="M10 26 Q22 22 34 18" stroke="#2D4A35" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>
+        KAFE
+      </div>
+      <div class="tagline">Specialty Coffee · Developer Culture</div>
+    </div>
+    <div class="hero-right">
+      <div style="font-family:'Fraunces',serif; font-weight:900; font-style:italic; font-size:96px; line-height:0.82; color:#C8DDB0; letter-spacing:-3px;">DEV
+        <svg style="width:52px;height:52px;vertical-align:middle;margin:0 2px;position:relative;top:-8px;" viewBox="0 0 52 52" fill="none">
+          <ellipse cx="26" cy="26" rx="22" ry="14" fill="#C8DDB0" transform="rotate(-20 26 26)"/>
+          <path d="M11 32 Q26 26 41 20" stroke="#2D4A35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        </svg>
+        KAFE</div>
+      <div style="font-size:10px; letter-spacing:3px; text-transform:uppercase; color:#C8DDB0; opacity:0.35; margin-top:16px; font-family:'DM Sans',sans-serif;">www.devkafe.com</div>
+    </div>
+  </div>
+
+  <div class="variants">
+    <div class="vbox">
+      <div class="vlogo on-cream">DEV<br>KAFE</div>
+      <div class="vlabel">Sfondo chiaro</div>
+    </div>
+    <div class="vbox inv">
+      <div class="vlogo on-dark">DEV<br>KAFE</div>
+      <div class="vlabel">Sfondo scuro</div>
+    </div>
+    <div class="vbox wht">
+      <div class="vlogo on-white">DEV<br>KAFE</div>
+      <div class="vlabel">Sfondo bianco</div>
+    </div>
+  </div>
+
+  <div class="palette">
+    <div class="sw" style="background:#1A2B1E;">
+      <div class="sw-name" style="color:#C8DDB0;">Forest Night</div>
+      <div class="sw-hex"  style="color:#C8DDB0;">#1A2B1E</div>
+    </div>
+    <div class="sw" style="background:#2D4A35;">
+      <div class="sw-name" style="color:#C8DDB0;">Deep Moss</div>
+      <div class="sw-hex"  style="color:#C8DDB0;">#2D4A35</div>
+    </div>
+    <div class="sw" style="background:#3D6B47;">
+      <div class="sw-name" style="color:#C8DDB0;">Brew Green</div>
+      <div class="sw-hex"  style="color:#C8DDB0;">#3D6B47</div>
+    </div>
+    <div class="sw" style="background:#C8DDB0;">
+      <div class="sw-name" style="color:#1A2B1E;">Leaf Cream</div>
+      <div class="sw-hex"  style="color:#1A2B1E;">#C8DDB0</div>
+    </div>
+    <div class="sw" style="background:#EEE9DC;">
+      <div class="sw-name" style="color:#1A2B1E;">Parchment</div>
+      <div class="sw-hex"  style="color:#1A2B1E;">#EEE9DC</div>
+    </div>
+  </div>
+
+  <div class="mockups">
+    <div class="mock">
+      <div class="cup">
+        <div class="cup-logo">DEV<br>KAFE</div>
+      </div>
+      <div class="mock-label">Tazza asporto</div>
+    </div>
+    <div class="mock" style="background:var(--dk-dark);">
+      <div class="bag">
+        <div class="bag-logo">DEV<br>KAFE</div>
+      </div>
+      <div class="mock-label" style="color:var(--dk-light);">Sacchetto caffè</div>
+    </div>
+    <div class="mock">
+      <div class="tote">
+        <div class="tote-logo">DEV<br>KAFE</div>
+      </div>
+      <div class="mock-label">Shopper bag</div>
+    </div>
+  </div>
+
+  <div class="type-section">
+    <div>
+      <div class="type-label">Font display — logo & titoli</div>
+      <div class="type-display">Fraunces</div>
+      <div class="type-sample">900 weight · Italic<br>Logo · Packaging · Headlines<br>Aa Bb Cc Dd 0123</div>
+    </div>
+    <div>
+      <div class="type-label">Font corpo — UI & testi</div>
+      <div class="type-ui">DM Sans</div>
+      <div class="type-sample">400 / 500 weight · Regular<br>Menu · Etichette · Descrizioni<br>Aa Bb Cc Dd 0123</div>
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <div class="footer-logo">DEV KAFE</div>
+    <div class="footer-divider"></div>
+    <div class="footer-links">
+      <span>Menu</span>
+      <span>About</span>
+      <span>Locations</span>
+      <span>Shop</span>
+    </div>
+    <div class="footer-url">devkafe.com · @devkafe</div>
+  </div>
+
+</div>
