@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
+import { HeroVideo } from "./hero-video";
 
 const headlineWords = ["Specialty", "coffee,", "tostato", "con", "cura."];
 
@@ -10,13 +10,7 @@ const easeOut = [0.22, 1, 0.36, 1] as const;
 export function Hero() {
   return (
     <section className="relative flex h-screen min-h-[640px] items-center overflow-hidden bg-bg">
-      <Image
-        src="/hero.jpg"
-        alt=""
-        fill
-        priority
-        className="object-cover"
-      />
+      <HeroVideo src="/herovideo.mp4" />
       <div className="absolute inset-0 bg-bg/35" />
       <div className="absolute inset-0 bg-gradient-to-r from-bg via-bg/55 to-transparent md:from-bg/95 md:via-bg/30 md:to-transparent" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_65%_75%_at_28%_48%,var(--color-bg)_0%,transparent_70%)] opacity-90" />
